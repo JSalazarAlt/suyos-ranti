@@ -1,5 +1,11 @@
 package com.suyos.ranti.model;
 
+import java.util.Collection;
+import java.util.Collections;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -20,7 +26,7 @@ import jakarta.persistence.Table;
  */
 @Entity
 @Table(name = "user")
-public class User {
+public class User implements UserDetails {
     
     // Instance variables
     
@@ -58,6 +64,12 @@ public class User {
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private Person person;
     
+    /**
+     * Indicates whether the user has accepted the terms and conditions
+     * Default is false, should be set to true upon registration
+     */
+    private Boolean termsAccepted = false;
+    
     // Constructors
     
     /**
@@ -81,6 +93,80 @@ public class User {
         this.role = role;
     }
 
+    // Overriding methods of UserDetails interface
+
+    /**
+     * Returns the authorities granted to the user.
+     * In this case, it returns an empty collection as no specific authorities are defined.
+     * 
+     * @return An empty collection of GrantedAuthority
+     */
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        // Assuming a simple user role future provision
+        // for more complex scenarios, you may want a Role entity
+        // currently returns an empty list
+        // return authorities if roles are added
+        return Collections.emptyList();
+    }
+
+    /**
+     * Gets the password
+     * @return The password
+     */
+    public String getPassword() {
+        return password;
+    }
+
+    /**
+     * Gets the username
+     * @return The username
+     */
+    @Override
+    public String getUsername() {
+        return username;
+    }
+
+    /**
+     * Checks if the account is expired
+     * @return true if the account is not expired, false otherwise
+     */
+    @Override
+    public boolean isAccountNonExpired() {
+        // Fixed values, you can have fields to represent state
+        return true;
+    }
+
+    /**
+     * Checks if the account is locked
+     * @return true if the account is not locked, false otherwise
+     */
+    @Override
+    public boolean isAccountNonLocked() {
+        // Fixed values, you can have fields to represent state
+        return true;
+    }
+
+    /**
+     * Checks if the credentials are non-expired
+     * @return true if the credentials are not expired, false otherwise
+     */
+    @Override
+    public boolean isCredentialsNonExpired() {
+        // Fixed values, you can have fields to represent state
+        return true;
+    }
+
+    /**
+     * Checks if the user is enabled
+     * @return true if the user is enabled, false otherwise
+     */
+    @Override
+    public boolean isEnabled() {
+        // Fixed values, you can have fields to represent state
+        return true;
+    }
+    
     // Setters and getters
     
     /**
@@ -97,14 +183,6 @@ public class User {
      */
     public void setId(Long id) {
         this.id = id;
-    }
-
-    /**
-     * Gets the username
-     * @return The username
-     */
-    public String getUsername() {
-        return username;
     }
 
     /**
@@ -129,14 +207,6 @@ public class User {
      */
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    /**
-     * Gets the password
-     * @return The password
-     */
-    public String getPassword() {
-        return password;
     }
 
     /**
@@ -177,6 +247,22 @@ public class User {
      */
     public void setPerson(Person person) {
         this.person = person;
+    }
+
+    /**
+     * Checks if the user has accepted the terms and conditions
+     * @return true if terms are accepted, false otherwise
+     */
+    public Boolean getTermsAccepted() {
+        return termsAccepted;
+    }
+    
+    /**
+     * Sets whether the user has accepted the terms and conditions
+     * @param termsAccepted true if terms are accepted, false otherwise
+     */
+    public void setTermsAccepted(Boolean termsAccepted) {
+        this.termsAccepted = termsAccepted;
     }
 
 }

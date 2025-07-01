@@ -62,7 +62,7 @@ public class Product {
      */
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    private User seller;
 
     // No-argument constructor
 
@@ -80,15 +80,15 @@ public class Product {
      * @param price The price of the product
      * @param stock The available stock quantity
      * @param category The category this product belongs to
-     * @param user The user who added this product
+     * @param seller The user who added this product
      */
-    public Product(String name, String description, BigDecimal price, int stock, Category category, User user) {
+    public Product(String name, String description, BigDecimal price, int stock, Category category, User seller) {
         this.name = name;
         this.description = description;
         this.price = price;
         this.stock = stock;
         this.category = category;
-        this.user = user;
+        this.seller = seller;
     }
 
     // Setters and Getters
@@ -193,16 +193,16 @@ public class Product {
      * Gets the user who added this product
      * @return The user who added this product
      */
-    public User getUser() {
-        return user;
+    public User getSellUser() {
+        return seller;
     }
 
     /**
      * Sets the user who added this product
-     * @param user The user to set
+     * @param seller The user to set
      */
-    public void setUser(User user) {
-        this.user = user;
+    public void setSellUser(User seller) {
+        this.seller = seller;
     }
     
 }
