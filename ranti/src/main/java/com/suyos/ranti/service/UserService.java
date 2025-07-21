@@ -80,7 +80,7 @@ public class UserService implements UserDetailsService {
     /**
      * Saves the user information.
      * 
-     * @param user User object to save to database
+     * @param user User object to save
      */
     public void save(User user) {
         userRepository.save(user);
