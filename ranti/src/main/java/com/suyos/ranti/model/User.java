@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.Collections;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import jakarta.persistence.CascadeType;
@@ -96,18 +97,16 @@ public class User implements UserDetails {
     // Overriding methods of UserDetails interface
 
     /**
-     * Returns the authorities granted to the user.
-     * In this case, it returns an empty collection as no specific authorities are defined.
+     * Returns the authorities granted to the user based on their role.
      * 
-     * @return An empty collection of GrantedAuthority
+     * @return A collection containing the user's role as a GrantedAuthority
      */
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        // Assuming a simple user role future provision
-        // for more complex scenarios, you may want a Role entity
-        // currently returns an empty list
-        // return authorities if roles are added
-        return Collections.emptyList();
+        if (role == null) {
+            return Collections.emptyList();
+        }
+        return Collections.singletonList(new SimpleGrantedAuthority("ROLE_" + role.name()));
     }
 
     /**

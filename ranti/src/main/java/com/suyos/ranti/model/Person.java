@@ -72,12 +72,12 @@ public class Person {
     /**
      * Constructor with parameters for creating a new person
      * 
-     * @param firstName The person's first name
-     * @param middleName The person's middle name
-     * @param lastName The person's last name
-     * @param address The person's address
-     * @param phone The person's phone number
-     * @param user The associated user account
+     * @param firstName the person's first name
+     * @param middleName the person's middle name
+     * @param lastName the person's last name
+     * @param address the person's address
+     * @param phone the person's phone number
+     * @param user the associated user account
      */
     public Person(String firstName, String middleName, String lastName, String address, String phone, User user) {
         this.firstName = firstName;
@@ -92,7 +92,7 @@ public class Person {
     
     /**
      * Gets the person ID
-     * @return The person ID
+     * @return the person ID
      */
     public Long getId() {
         return id;
@@ -100,7 +100,7 @@ public class Person {
 
     /**
      * Sets the person ID
-     * @param id The person ID to set
+     * @param id the person ID to set
      */
     public void setId(Long id) {
         this.id = id;
@@ -108,7 +108,7 @@ public class Person {
 
     /**
      * Gets the first name
-     * @return The first name
+     * @return the first name
      */
     public String getFirstName() {
         return firstName;
@@ -116,7 +116,7 @@ public class Person {
 
     /**
      * Sets the first name
-     * @param firstName The first name to set
+     * @param firstName the first name to set
      */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
@@ -124,7 +124,7 @@ public class Person {
 
     /**
      * Gets the last name
-     * @return The last name
+     * @return the last name
      */
     public String getLastName() {
         return lastName;
@@ -132,7 +132,7 @@ public class Person {
 
     /**
      * Sets the last name
-     * @param lastName The last name to set
+     * @param lastName the last name to set
      */
     public void setLastName(String lastName) {
         this.lastName = lastName;
@@ -140,7 +140,7 @@ public class Person {
 
     /**
      * Gets the middle name
-     * @return The middle name
+     * @return the middle name
      */
     public String getMiddleName() {
         return middleName;
@@ -148,7 +148,7 @@ public class Person {
 
     /**
      * Sets the middle name
-     * @param middleName The middle name to set
+     * @param middleName the middle name to set
      */
     public void setMiddleName(String middleName) {
         this.middleName = middleName;
@@ -156,7 +156,7 @@ public class Person {
 
     /**
      * Gets the address
-     * @return The address
+     * @return the address
      */
     public String getAddress() {
         return address;
@@ -164,7 +164,7 @@ public class Person {
 
     /**
      * Sets the address
-     * @param address The address to set
+     * @param address the address to set
      */
     public void setAddress(String address) {
         this.address = address;
@@ -172,7 +172,7 @@ public class Person {
 
     /**
      * Gets the phone number
-     * @return The phone number
+     * @return the phone number
      */
     public String getPhone() {
         return phone;
@@ -180,7 +180,7 @@ public class Person {
 
     /**
      * Sets the phone number
-     * @param phone The phone number to set
+     * @param phone the phone number to set
      */
     public void setPhone(String phone) {
         this.phone = phone;
@@ -188,7 +188,7 @@ public class Person {
 
     /**
      * Gets the associated user
-     * @return The associated user
+     * @return the associated user
      */
     public User getUser() {
         return user;
@@ -196,7 +196,7 @@ public class Person {
 
     /**
      * Sets the associated user
-     * @param user The user to set
+     * @param user the user to set
      */
     public void setUser(User user) {
         this.user = user;
@@ -206,7 +206,7 @@ public class Person {
     
     /**
      * Gets the full name by combining first and last name
-     * @return The full name (firstName + lastName)
+     * @return the full name (firstName + lastName)
      */
     public String getFullName() {
         return firstName + " " + lastName;
