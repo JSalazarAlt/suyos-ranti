@@ -1,15 +1,23 @@
 package com.suyos.ranti.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.suyos.ranti.model.Role;
 import com.suyos.ranti.model.User;
 import com.suyos.ranti.repository.UserRepository;
 
+/**
+ * Service class that implements UserDetailsService interface for User entity.
+ * 
+ * @author Suyos Team
+ * @version 1.0
+ */
 @Service
 public class UserService implements UserDetailsService {
     
@@ -27,7 +35,6 @@ public class UserService implements UserDetailsService {
      * Constructor for UserService
      * @param userRepository UserRepository instance for database operations
      */
-    @Autowired
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
         this.passwordEncoder = new BCryptPasswordEncoder();
@@ -53,8 +60,11 @@ public class UserService implements UserDetailsService {
         // Set terms accepted to true
         user.setTermsAccepted(true);
 
+        user.setRole(Role.CUSTOMER);
+
         // Save the new user
         return userRepository.save(user);
+        
     }
 
     /**
@@ -84,6 +94,19 @@ public class UserService implements UserDetailsService {
      */
     public void save(User user) {
         userRepository.save(user);
+    }
+
+    /**
+     * Gets the currently authenticated user from the security context.
+     * 
+     * @return the currently authenticated user, or null if not authenticated
+     */
+    public User getCurrentUser() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication == null || !authentication.isAuthenticated()) {
+            return null;
+        }
+        return findByUsername(authentication.getName());
     }
     
     /**
