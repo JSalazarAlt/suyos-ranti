@@ -1,38 +1,82 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>
-      Update Product
-    </title>
-    <link rel="stylesheet" href="/css/product-add.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Product - Ranti</title>
+    <link rel="stylesheet" th:href="@{/css/product-add.css}">
 </head>
 <body>
-    <h1>
-      Update Product
-    </h1>
+    <div class="container">
+        <header class="page-header">
+            <h1>Update Product</h1>
+            <p>Update a product of your inventory</p>
+        </header>
     
-    <hr>
-    
-    <!-- TODO_14: Create an HTML file for the update form, using the POST method and setting the form action to the same endpoint -->
-    <!-- as the one used for adding a new item -->
-    <form action="#" th:action="@{/saveProduct}" th:object="${product}" method="post">
+        <div class="form-container">
+            <form action="#" th:action="@{/saveProduct}" th:object="${product}" method="post" class="product-form">
+                <input type="hidden" th:field="*{id}" />
 
-        <!-- TODO_15: Add a hidden input field to keep track of the id -->
-        <input type="hidden" th:field="*{id}" />
+                <div class="form-group">
+                    <label for="name" class="form-label">Product Name</label>
+                    <input type="text" 
+                           id="name" 
+                           name="name" 
+                           th:field="*{name}" 
+                           class="form-input"
+                           placeholder="Enter product name"
+                           required>
+                </div>
 
-        <!-- TODO_16: Use a Thymeleaf object and field tags -->
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" th:field="*{name}">
-        <br>
+                <div class="form-group">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea id="description" 
+                              name="description" 
+                              th:field="*{description}" 
+                              class="form-textarea"
+                              placeholder="Enter product description"
+                              rows="3"></textarea>
+                </div>
 
-        <label for="price">Price:</label>
-        <input type="text" id="price" name="price" th:field="*{price}">
-        <br>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="price" class="form-label">Price ($)</label>
+                        <input type="number" 
+                               id="price" 
+                               name="price" 
+                               th:field="*{price}" 
+                               class="form-input"
+                               placeholder="0.00"
+                               step="0.01"
+                               min="0"
+                               required>
+                    </div>
 
-        <!-- TODO_17: Add the Update Button -->
-        <button type="submit">Update Item</button>
+                    <div class="form-group">
+                        <label for="stock" class="form-label">Stock Quantity</label>
+                        <input type="number" 
+                               id="stock" 
+                               name="stock" 
+                               th:field="*{stock}" 
+                               class="form-input"
+                               placeholder="0"
+                               min="0"
+                               required>
+                    </div>
+                </div>
 
-    </form>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">
+                        <span class="btn-icon">✓</span>
+                        Save Product
+                    </button>
+                    <a th:href="@{/products}" class="btn btn-secondary">
+                        Cancel
+                    </a>
+                </div>
+
+            </form>
+        </div>
+    </div>
 </body>
 </html>

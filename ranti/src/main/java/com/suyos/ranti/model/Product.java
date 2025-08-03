@@ -52,6 +52,11 @@ public class Product {
     private int stock;
 
     /**
+     * URL of the product image
+     */
+    private String imgUrl;
+
+    /**
      * Category this product belongs to (many-to-one relationship)
      */
     @ManyToOne
@@ -61,7 +66,7 @@ public class Product {
      * User who added this product (many-to-one relationship)
      */
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "user_id")
     private User seller;
 
     // No-argument constructor
@@ -79,14 +84,16 @@ public class Product {
      * @param description The description of the product
      * @param price The price of the product
      * @param stock The available stock quantity
+     * @param imgUrl The URL of the product image
      * @param category The category this product belongs to
      * @param seller The user who added this product
      */
-    public Product(String name, String description, BigDecimal price, int stock, Category category, User seller) {
+    public Product(String name, String description, BigDecimal price, int stock, String imgUrl, Category category, User seller) {
         this.name = name;
         this.description = description;
         this.price = price;
         this.stock = stock;
+        this.imgUrl = imgUrl;
         this.category = category;
         this.seller = seller;
     }
@@ -171,6 +178,22 @@ public class Product {
      */
     public void setStock(int stock) {
         this.stock = stock;
+    }
+
+    /**
+     * Gets the product image URL
+     * @return The product image URL
+     */
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    /**
+     * Sets the product image URL
+     * @param imgUrl The product image URL to set
+     */
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 
     /**
