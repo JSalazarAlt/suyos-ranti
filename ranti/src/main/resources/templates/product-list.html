@@ -2,37 +2,61 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Coffee Shop Menu</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List - Ranti</title>
+    <link rel="stylesheet" th:href="@{/css/product-list.css}">
 </head>
-    <body>
-    <div>
-        <h1>Welcome to the Coffee Shop!</h1>
-        <h2>Our Menu</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Price</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-            <tr th:each="product : ${products}">
-                <td th:text="${product.id}"></td>
-                <td th:text="${product.name}"></td>
-                <td th:text="${#numbers.formatDecimal(product.price, 1, 2, 'POINT')}"></td>
-                <td>
-                    <!-- Update Button as a hyperlink in the Thymeleaf tag –-->
-                    <a th:href="@{/showFormForUpdate/{id}(id=${product.id})}" class="button">Update</a>
-                    <!-- Delete Button as a hyperlink in the Thymeleaf tag –-->
-                    <a th:href="@{/deleteProduct/{id}(id=${product.id})}" class="button">Delete</a>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-        <a th:href="@{/showFormForAdd}" class="button">Add Menu Item</a>
+<body>
+    <div class="container">
+        <header class="page-header">
+            <h1>Product Management</h1>
+            <p>Manage your product inventory</p>
+        </header>
+
+        <div class="actions-bar">
+            <a th:href="@{/showFormForAdd}" class="btn btn-primary">
+                <span class="btn-icon">+</span>
+                Add New Product
+            </a>
+        </div>
+
+        <div class="table-container">
+            <table class="product-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Stock</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="product : ${products}" class="product-row">
+                        <td th:text="${product.id}" class="product-id"></td>
+                        <td th:text="${product.name}" class="product-name"></td>
+                        <td th:text="${product.description}" class="product-description"></td>
+                        <td th:text="'$' + ${#numbers.formatDecimal(product.price, 1, 2, 'POINT')}" class="product-price"></td>
+                        <td th:text="${product.stock}" class="product-stock"></td>
+                        <td class="product-actions">
+                            <a th:href="@{/showFormForUpdate/{id}(id=${product.id})}" class="btn btn-secondary btn-sm">
+                                Edit
+                            </a>
+                            <a th:href="@{/deleteProduct/{id}(id=${product.id})}" 
+                               class="btn btn-danger btn-sm"
+                               onclick="return confirm('Are you sure you want to delete this product?')">
+                                Delete
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div th:if="${#lists.isEmpty(products)}" class="empty-state">
+                <p>No products found. <a th:href="@{/showFormForAdd}">Add your first product</a></p>
+            </div>
+        </div>
     </div>
-    </body>
+</body>
 </html>

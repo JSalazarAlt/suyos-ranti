@@ -20,7 +20,7 @@ import com.suyos.ranti.service.ProductService;
  * @version 1.0
  */
 @Controller
-@RequestMapping("/products")
+@RequestMapping("/")
 public class ProductController {
     
     /**
@@ -41,10 +41,10 @@ public class ProductController {
      * @param model the model to add attributes for the view
      * @return the home view name with products list
      */
-    @GetMapping("/")
+    @GetMapping("/products")
     public String listProducts(Model model) {
         model.addAttribute("products", productService.getAllProducts());
-        return "home";
+        return "product-list";
     }
 
     /**

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+      Update Product
+    </title>
+    <link rel="stylesheet" href="/css/product-add.css">
+</head>
+<body>
+    <h1>
+      Update Product
+    </h1>
+    
+    <hr>
+    
+    <!-- TODO_14: Create an HTML file for the update form, using the POST method and setting the form action to the same endpoint -->
+    <!-- as the one used for adding a new item -->
+    <form action="#" th:action="@{/saveProduct}" th:object="${product}" method="post">
+
+        <!-- TODO_15: Add a hidden input field to keep track of the id -->
+        <input type="hidden" th:field="*{id}" />
+
+        <!-- TODO_16: Use a Thymeleaf object and field tags -->
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" th:field="*{name}">
+        <br>
+
+        <label for="price">Price:</label>
+        <input type="text" id="price" name="price" th:field="*{price}">
+        <br>
+
+        <!-- TODO_17: Add the Update Button -->
+        <button type="submit">Update Item</button>
+
+    </form>
+</body>
+</html>

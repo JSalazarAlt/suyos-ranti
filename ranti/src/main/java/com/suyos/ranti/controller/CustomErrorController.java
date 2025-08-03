@@ -32,7 +32,7 @@ public class CustomErrorController implements ErrorController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication != null && authentication.isAuthenticated() ) {
             redirectAttributes.addFlashAttribute("errorMessage","Redirected to Dashboard due to issue!");
-            return new ModelAndView("redirect:/dashboard");
+            return new ModelAndView("redirect:/products/");
         }
         return new ModelAndView("redirect:/login");
     }
