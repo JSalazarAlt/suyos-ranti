@@ -1,4 +1,4 @@
-# RANTI - E-commerce Platform
+# RANTI: Suyos' E-commerce Platform
 
 ![Ranti Logo](ranti/src/main/resources/static/images/ranti-web.png)
 
