@@ -54,8 +54,8 @@
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/yourusername/Suyos_Ecommerce_App.git
-cd Suyos_Ecommerce_App
+git clone https://github.com/yourusername/suyos-ranti.git
+cd suyos-ranti
 ```
 
 ### 2. Database Setup
@@ -108,7 +108,7 @@ CREATE TABLE products (
 ```
 
 ### 3. Configure Application
-Update `ranti/src/main/resources/application.properties`:
+Update `src/main/resources/application.properties`:
 ```properties
 # Database Configuration
 spring.datasource.url=jdbc:mysql://localhost:3306/ranti?useSSL=false&allowPublicKeyRetrieval=true
@@ -127,7 +127,6 @@ spring.servlet.multipart.max-request-size=5MB
 
 ### 4. Run the Application
 ```bash
-cd ranti
 mvn spring-boot:run
 ```
 
@@ -136,25 +135,24 @@ The application will be available at: `http://localhost:8080`
 ## 📁 Project Structure
 
 ```
-Suyos_Ecommerce_App/
-├── ranti/
-│   ├── src/main/java/com/suyos/ranti/
-│   │   ├── controller/          # REST Controllers
-│   │   ├── model/              # Entity Classes
-│   │   ├── repository/         # Data Access Layer
-│   │   ├── service/            # Business Logic
-│   │   └── RantiApplication.java
-│   ├── src/main/resources/
-│   │   ├── static/
-│   │   │   ├── css/           # Stylesheets
-│   │   │   ├── js/            # JavaScript files
-│   │   │   ├── images/        # Static images
-│   │   │   └── uploads/       # Uploaded files
-│   │   ├── templates/
-│   │   │   ├── fragments/     # Reusable components
-│   │   │   └── *.html         # Thymeleaf templates
-│   │   └── application.properties
-│   └── pom.xml
+suyos-ranti/
+├── src/main/java/com/suyos/ranti/
+│   ├── controller/         # Traditional and REST Controllers
+│   ├── model/              # Entity Classes
+│   ├── repository/         # Data Access Layer
+│   ├── service/            # Business Logic
+│   └── RantiApplication.java
+├── src/main/resources/
+│   ├── static/
+│   │   ├── css/           # Stylesheets
+│   │   ├── js/            # JavaScript files
+│   │   ├── images/        # Static images
+│   │   └── uploads/       # Uploaded files
+│   ├── templates/
+│   │   ├── fragments/     # Reusable components
+│   │   └── *.html         # Thymeleaf templates
+│   └── application.properties
+├── pom.xml
 └── README.md
 ```
 
