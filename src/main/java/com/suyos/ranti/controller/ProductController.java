@@ -95,16 +95,21 @@ public class ProductController {
                 
                 // Generate unique filename
                 String originalFilename = imageFile.getOriginalFilename();
-                String fileExtension = originalFilename.substring(originalFilename.lastIndexOf("."));
-                String uniqueFilename = UUID.randomUUID().toString() + fileExtension;
+                
+                if (originalFilename != null && originalFilename.contains(".")) {
+                    String fileExtension = originalFilename.substring(originalFilename.lastIndexOf("."));
+                    String uniqueFilename = UUID.randomUUID().toString() + fileExtension;
 
-                // Save file
-                Path filePath = uploadPath.resolve(uniqueFilename);
-                Files.copy(imageFile.getInputStream(), filePath);
-                
-                // Set the image URL in the product
-                product.setImgUrl("/uploads/" + uniqueFilename);
-                
+                    // Save file
+                    Path filePath = uploadPath.resolve(uniqueFilename);
+                    Files.copy(imageFile.getInputStream(), filePath);
+
+                    // Set the image URL in the product
+                    product.setImgUrl("/uploads/" + uniqueFilename);
+                } else {
+                    // Handle error - invalid file name
+                    return "redirect:/products/new?error=filename";
+                }
             } catch (IOException e) {
                 // Handle file upload error
                 return "redirect:/products/new?error=upload";
