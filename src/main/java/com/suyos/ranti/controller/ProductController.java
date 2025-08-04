@@ -87,7 +87,7 @@ public class ProductController {
                 }
                 
                 // Create uploads directory if it doesn't exist
-                String uploadDir = "ranti/src/main/resources/static/uploads/";
+                String uploadDir = "src/main/resources/static/uploads/";
                 Path uploadPath = Paths.get(uploadDir);
                 if (!Files.exists(uploadPath)) {
                     Files.createDirectories(uploadPath);

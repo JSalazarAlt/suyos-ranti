@@ -1,6 +1,6 @@
 # RANTI: Suyos' E-commerce Platform
 
-![Ranti Logo](ranti/src/main/resources/static/images/ranti-web.png)
+![Ranti Logo](src/main/resources/static/images/ranti-web.png)
 
 **Your Everyday Market** - A modern, full-featured e-commerce platform built with Spring Boot and Thymeleaf.
 
