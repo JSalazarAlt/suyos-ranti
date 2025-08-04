@@ -19,7 +19,7 @@ import jakarta.persistence.Table;
  * @version 1.0
  */
 @Entity
-@Table(name = "product")
+@Table(name = "products")
 public class Product {
     
     // Instance variables

@@ -26,7 +26,7 @@ import jakarta.persistence.Table;
  * @version 1.0
  */
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class User implements UserDetails {
     
     // Instance variables

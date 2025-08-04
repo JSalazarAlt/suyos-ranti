@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products - Ranti</title>
+    <link rel="stylesheet" th:href="@{/css/fragments.css}">
     <link rel="stylesheet" th:href="@{/css/product-list.css}">
 </head>
 <body>
+    <!-- Header -->
+    <div th:replace="~{fragments/header :: header}"></div>
+    
     <div class="container">
         <!-- Header Section -->
         <header class="page-header">
@@ -16,7 +20,7 @@
                     <p>Discover amazing products at great prices</p>
                 </div>
                 <div class="header-actions">
-                    <a th:href="@{/showFormForAdd}" class="btn btn-primary">
+                    <a th:href="@{/products/new}" class="btn btn-primary">
                         <span class="btn-icon">+</span>
                         Add Product
                     </a>
@@ -52,7 +56,7 @@
                 <div class="empty-icon">📦</div>
                 <h3>No products found</h3>
                 <p>Start building your inventory by adding your first product</p>
-                <a th:href="@{/showFormForAdd}" class="btn btn-primary">Add First Product</a>
+                <a th:href="@{/products/new}" class="btn btn-primary">Add First Product</a>
             </div>
 
             <div th:unless="${#lists.isEmpty(products)}" class="products-grid">
@@ -91,12 +95,12 @@
                             </button>
                             
                             <div class="admin-actions">
-                                <a th:href="@{/showFormForUpdate/{id}(id=${product.id})}" 
+                                <a th:href="@{/products/{id}/edit(id=${product.id})}" 
                                    class="btn btn-secondary btn-sm" 
                                    title="Edit Product">
                                     ✏️
                                 </a>
-                                <a th:href="@{/deleteProduct/{id}(id=${product.id})}" 
+                                <a th:href="@{/products/{id}/delete(id=${product.id})}" 
                                    class="btn btn-danger btn-sm" 
                                    title="Delete Product"
                                    onclick="return confirm('Are you sure you want to delete this product?')">
@@ -118,5 +122,8 @@
             </div>
         </div>
     </div>
+    
+    <!-- Footer -->
+    <div th:replace="~{fragments/footer :: footer}"></div>
 </body>
 </html>

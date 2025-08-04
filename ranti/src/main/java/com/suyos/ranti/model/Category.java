@@ -18,7 +18,7 @@ import jakarta.persistence.Table;
  * @version 1.0
  */
 @Entity
-@Table(name = "category")
+@Table(name = "categories")
 public class Category {
     
     // Instance variables

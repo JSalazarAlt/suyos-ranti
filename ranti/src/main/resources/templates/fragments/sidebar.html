@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <!-- Sidebar Fragment -->
+    <aside th:fragment="sidebar" class="main-sidebar">
+        <div class="sidebar-container">
+            <!-- Categories Section -->
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Categories</h3>
+                <ul class="sidebar-menu">
+                    <li class="sidebar-item">
+                        <a th:href="@{/products?category=electronics}" class="sidebar-link">
+                            <span class="sidebar-icon">📱</span>
+                            Electronics
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a th:href="@{/products?category=clothing}" class="sidebar-link">
+                            <span class="sidebar-icon">👕</span>
+                            Clothing & Fashion
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a th:href="@{/products?category=home}" class="sidebar-link">
+                            <span class="sidebar-icon">🏠</span>
+                            Home & Garden
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a th:href="@{/products?category=sports}" class="sidebar-link">
+                            <span class="sidebar-icon">⚽</span>
+                            Sports & Outdoors
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a th:href="@{/products?category=books}" class="sidebar-link">
+                            <span class="sidebar-icon">📚</span>
+                            Books & Media
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a th:href="@{/products?category=beauty}" class="sidebar-link">
+                            <span class="sidebar-icon">💄</span>
+                            Beauty & Health
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Quick Links Section -->
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Quick Links</h3>
+                <ul class="sidebar-menu">
+                    <li class="sidebar-item">
+                        <a th:href="@{/products?sort=newest}" class="sidebar-link">
+                            <span class="sidebar-icon">🆕</span>
+                            New Arrivals
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a th:href="@{/products?sort=popular}" class="sidebar-link">
+                            <span class="sidebar-icon">🔥</span>
+                            Best Sellers
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a th:href="@{/products?discount=true}" class="sidebar-link">
+                            <span class="sidebar-icon">💰</span>
+                            On Sale
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a th:href="@{/products?rating=5}" class="sidebar-link">
+                            <span class="sidebar-icon">⭐</span>
+                            Top Rated
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Price Filter Section -->
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Price Range</h3>
+                <div class="price-filter">
+                    <div class="price-inputs">
+                        <input type="number" placeholder="Min" class="price-input" id="minPrice">
+                        <span class="price-separator">-</span>
+                        <input type="number" placeholder="Max" class="price-input" id="maxPrice">
+                    </div>
+                    <button class="price-apply-btn">Apply</button>
+                </div>
+            </div>
+
+            <!-- Featured Banner -->
+            <div class="sidebar-section">
+                <div class="sidebar-banner">
+                    <div class="banner-content">
+                        <h4 class="banner-title">Special Offer!</h4>
+                        <p class="banner-text">Get 20% off on your first order</p>
+                        <a th:href="@{/register}" class="banner-btn">Sign Up Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+</body>
+</html>

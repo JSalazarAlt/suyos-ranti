@@ -14,7 +14,7 @@
         </header>
     
         <div class="form-container">
-            <form action="#" th:action="@{/saveProduct}" th:object="${product}" method="post" class="product-form">
+            <form action="#" th:action="@{/save}" th:object="${product}" method="post" class="product-form">
                 <input type="hidden" th:field="*{id}" />
 
                 <div class="form-group">
