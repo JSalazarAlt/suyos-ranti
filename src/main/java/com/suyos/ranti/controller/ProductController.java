@@ -17,6 +17,7 @@ import java.nio.file.Paths;
 import java.util.UUID;
 
 import com.suyos.ranti.model.Product;
+import com.suyos.ranti.model.ProductImage;
 import com.suyos.ranti.service.ProductService;
 
 /**
@@ -75,17 +76,11 @@ public class ProductController {
      */
     @PostMapping("/save")
     public String saveProduct(@ModelAttribute("product") Product product, 
-                            @RequestParam("imageFile") MultipartFile imageFile) {
+                            @RequestParam("imageFiles") MultipartFile[] imageFiles) {
         
-        // Handle image upload
-        if (!imageFile.isEmpty()) {
+        // Handle multiple image uploads
+        if (imageFiles != null && imageFiles.length > 0) {
             try {
-                // Validate file size (5MB)
-                if (imageFile.getSize() > 5 * 1024 * 1024) {
-                    // Handle error - file too large
-                    return "redirect:/products/new?error=filesize";
-                }
-                
                 // Create uploads directory if it doesn't exist
                 String uploadDir = "src/main/resources/static/uploads/";
                 Path uploadPath = Paths.get(uploadDir);
@@ -93,25 +88,30 @@ public class ProductController {
                     Files.createDirectories(uploadPath);
                 }
                 
-                // Generate unique filename
-                String originalFilename = imageFile.getOriginalFilename();
-                
-                if (originalFilename != null && originalFilename.contains(".")) {
-                    String fileExtension = originalFilename.substring(originalFilename.lastIndexOf("."));
-                    String uniqueFilename = UUID.randomUUID().toString() + fileExtension;
+                int displayOrder = 0;
+                for (MultipartFile imageFile : imageFiles) {
+                    if (!imageFile.isEmpty()) {
+                        // Validate file size (5MB)
+                        if (imageFile.getSize() > 5 * 1024 * 1024) {
+                            return "redirect:/products/new?error=filesize";
+                        }
+                        
+                        String originalFilename = imageFile.getOriginalFilename();
+                        if (originalFilename != null && originalFilename.contains(".")) {
+                            String fileExtension = originalFilename.substring(originalFilename.lastIndexOf("."));
+                            String uniqueFilename = UUID.randomUUID().toString() + fileExtension;
 
-                    // Save file
-                    Path filePath = uploadPath.resolve(uniqueFilename);
-                    Files.copy(imageFile.getInputStream(), filePath);
+                            // Save file
+                            Path filePath = uploadPath.resolve(uniqueFilename);
+                            Files.copy(imageFile.getInputStream(), filePath);
 
-                    // Set the image URL in the product
-                    product.setImgUrl("/uploads/" + uniqueFilename);
-                } else {
-                    // Handle error - invalid file name
-                    return "redirect:/products/new?error=filename";
+                            // Create ProductImage entity
+                            ProductImage productImage = new ProductImage(product, "/uploads/" + uniqueFilename, displayOrder++);
+                            product.getImages().add(productImage);
+                        }
+                    }
                 }
             } catch (IOException e) {
-                // Handle file upload error
                 return "redirect:/products/new?error=upload";
             }
         }

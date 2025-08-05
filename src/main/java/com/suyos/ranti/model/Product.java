@@ -8,7 +8,11 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.persistence.CascadeType;
+import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Entity class representing a Product in the e-commerce system.
@@ -52,9 +56,10 @@ public class Product {
     private int stock;
 
     /**
-     * URL of the product image
+     * List of product images
      */
-    private String imgUrl;
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ProductImage> images = new ArrayList<>();
 
     /**
      * Category this product belongs to (many-to-one relationship)
@@ -88,12 +93,12 @@ public class Product {
      * @param category The category this product belongs to
      * @param seller The user who added this product
      */
-    public Product(String name, String description, BigDecimal price, int stock, String imgUrl, Category category, User seller) {
+    public Product(String name, String description, BigDecimal price, int stock, ArrayList<ProductImage> images, Category category, User seller) {
         this.name = name;
         this.description = description;
         this.price = price;
         this.stock = stock;
-        this.imgUrl = imgUrl;
+        this.images = images;
         this.category = category;
         this.seller = seller;
     }
@@ -181,19 +186,27 @@ public class Product {
     }
 
     /**
-     * Gets the product image URL
-     * @return The product image URL
+     * Gets the product images
+     * @return the list of product images
      */
-    public String getImgUrl() {
-        return imgUrl;
+    public List<ProductImage> getImages() {
+        return images;
     }
 
     /**
-     * Sets the product image URL
-     * @param imgUrl The product image URL to set
+     * Sets the product images
+     * @param images the list of product images to set
      */
-    public void setImgUrl(String imgUrl) {
-        this.imgUrl = imgUrl;
+    public void setImages(List<ProductImage> images) {
+        this.images = images;
+    }
+    
+    /**
+     * Gets the first image URL for display
+     * @return the first image URL or null if no images
+     */
+    public String getFirstImageUrl() {
+        return images.isEmpty() ? null : images.get(0).getImageUrl();
     }
 
     /**

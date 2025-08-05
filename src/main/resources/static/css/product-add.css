@@ -234,10 +234,18 @@ body {
     color: #6c757d;
 }
 
-/* Image Preview */
-.image-preview {
-    position: relative;
+/* Multiple Images Preview */
+.images-preview {
+    display: none;
+    flex-wrap: wrap;
+    gap: 15px;
     margin-top: 15px;
+}
+
+.image-preview-item {
+    position: relative;
+    width: 120px;
+    height: 120px;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -245,23 +253,23 @@ body {
 
 .preview-image {
     width: 100%;
-    max-height: 200px;
+    height: 100%;
     object-fit: cover;
     display: block;
 }
 
 .remove-image {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 30px;
-    height: 30px;
+    top: 5px;
+    right: 5px;
+    width: 25px;
+    height: 25px;
     background: rgba(220, 53, 69, 0.9);
     color: white;
     border: none;
     border-radius: 50%;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     display: flex;
     align-items: center;
@@ -271,6 +279,18 @@ body {
 
 .remove-image:hover {
     background: rgba(220, 53, 69, 1);
+}
+
+.image-order {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 2px 6px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 600;
 }
 
 /* File Upload Error States */
@@ -329,5 +349,14 @@ body {
     .btn {
         padding: 10px 20px;
         font-size: 14px;
+    }
+    
+    .images-preview {
+        justify-content: center;
+    }
+    
+    .image-preview-item {
+        width: 100px;
+        height: 100px;
     }
 }
