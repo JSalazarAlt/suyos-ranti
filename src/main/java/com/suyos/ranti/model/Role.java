@@ -6,6 +6,7 @@ package com.suyos.ranti.model;
  * 
  * @author Suyos Team
  * @version 1.0
+ * @since 1.0
  */
 public enum Role {
     /** Customer role with shopping permissions */
@@ -27,6 +28,7 @@ public enum Role {
      * Constructor for Role enum
      * 
      * @param description The description of the role's permissions
+     * @since 1.0
      */
     Role(String description) {
         this.description = description;

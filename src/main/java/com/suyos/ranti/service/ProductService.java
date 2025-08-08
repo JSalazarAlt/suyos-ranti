@@ -14,6 +14,7 @@ import com.suyos.ranti.repository.ProductRepository;
  * 
  * @author Suyos Team
  * @version 1.0
+ * @since 1.0
  */
 @Service
 public class ProductService {
@@ -26,6 +27,7 @@ public class ProductService {
     /**
      * Constructor for ProductService
      * @param productRepository ProductRepository instance for database operations
+     * @since 1.0
      */
     public ProductService(ProductRepository productRepository) {
         this.productRepository = productRepository;

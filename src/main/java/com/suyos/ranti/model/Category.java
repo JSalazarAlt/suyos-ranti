@@ -16,6 +16,7 @@ import jakarta.persistence.Table;
  * 
  * @author Suyos Team
  * @version 1.0
+ * @since 1.0
  */
 @Entity
 @Table(name = "categories")

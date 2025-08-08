@@ -7,6 +7,7 @@ package com.suyos.ranti.model;
  * 
  * @author Suyos Team
  * @version 1.0
+ * @since 1.0
  */
 public class Order {
     

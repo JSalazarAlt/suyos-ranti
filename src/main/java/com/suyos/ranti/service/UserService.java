@@ -17,6 +17,7 @@ import com.suyos.ranti.repository.UserRepository;
  * 
  * @author Suyos Team
  * @version 1.0
+ * @since 1.0
  */
 @Service
 public class UserService implements UserDetailsService {
@@ -34,6 +35,7 @@ public class UserService implements UserDetailsService {
     /**
      * Constructor for UserService
      * @param userRepository UserRepository instance for database operations
+     * @since 1.0
      */
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
@@ -68,9 +70,9 @@ public class UserService implements UserDetailsService {
     }
 
     /**
-     * Checks if a user with the given username or email exists.
+     * Finds a user by their username.
      * 
-     * @param usernameOrEmail Username or email to check
+     * @param username Username to search for
      * @return User object if found, null otherwise
      */
     public User findByUsername(String username) {

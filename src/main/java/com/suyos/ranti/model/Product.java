@@ -21,6 +21,7 @@ import java.util.ArrayList;
  * 
  * @author Suyos Team
  * @version 1.0
+ * @since 1.0
  */
 @Entity
 @Table(name = "products")
@@ -89,7 +90,7 @@ public class Product {
      * @param description The description of the product
      * @param price The price of the product
      * @param stock The available stock quantity
-     * @param imgUrl The URL of the product image
+     * @param images The list of product images
      * @param category The category this product belongs to
      * @param seller The user who added this product
      */
@@ -204,6 +205,7 @@ public class Product {
     /**
      * Gets the first image URL for display
      * @return the first image URL or null if no images
+     * @since 1.0
      */
     public String getFirstImageUrl() {
         return images.isEmpty() ? null : images.get(0).getImageUrl();
@@ -226,18 +228,18 @@ public class Product {
     }
 
     /**
-     * Gets the user who added this product
-     * @return The user who added this product
+     * Gets the seller who added this product
+     * @return The seller who added this product
      */
-    public User getSellUser() {
+    public User getSeller() {
         return seller;
     }
 
     /**
-     * Sets the user who added this product
-     * @param seller The user to set
+     * Sets the seller who added this product
+     * @param seller The seller to set
      */
-    public void setSellUser(User seller) {
+    public void setSeller(User seller) {
         this.seller = seller;
     }
     

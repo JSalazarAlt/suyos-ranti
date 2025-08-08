@@ -12,6 +12,7 @@ import com.suyos.ranti.model.Product;
  * 
  * @author Suyos Team
  * @version 1.0
+ * @since 1.0
  */
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {

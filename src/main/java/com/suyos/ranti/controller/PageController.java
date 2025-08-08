@@ -10,6 +10,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
  * 
  * @author Suyos Team
  * @version 1.0
+ * @since 1.0
  */
 @Controller
 public class PageController {

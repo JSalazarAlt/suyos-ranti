@@ -27,6 +27,7 @@ import com.suyos.ranti.service.ProductService;
  * 
  * @author Suyos Team
  * @version 1.0
+ * @since 1.0
  */
 @Controller
 @RequestMapping("/products")
@@ -34,12 +35,14 @@ public class ProductController {
     
     /**
      * ProductService instance for product-related operations
+     * @since 1.0
      */
     private final ProductService productService;
 
     /**
      * Constructor for ProductController
      * @param productService ProductService instance for business logic operations
+     * @since 1.0
      */
     public ProductController(ProductService productService) {
         this.productService = productService;
@@ -71,7 +74,7 @@ public class ProductController {
     /**
      * Saves a new or updated product with image upload
      * @param product the product object from the form
-     * @param imageFile the uploaded image file
+     * @param imageFiles the uploaded image files
      * @return redirect to products page
      */
     @PostMapping("/save")

@@ -17,6 +17,7 @@ import jakarta.servlet.http.HttpServletRequest;
  * 
  * @author Suyos Team
  * @version 1.0
+ * @since 1.0
  */
 @Controller
 public class CustomErrorController implements ErrorController {

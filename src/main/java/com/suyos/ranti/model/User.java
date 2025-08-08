@@ -24,6 +24,7 @@ import jakarta.persistence.Table;
  * 
  * @author Suyos Team
  * @version 1.0
+ * @since 1.0
  */
 @Entity
 @Table(name = "users")
@@ -49,7 +50,7 @@ public class User implements UserDetails {
     private String email;
     
     /**
-     * User's password (should be encrypted)
+     * User's password (encrypted by UserService before saving)
      */
     private String password;
 
@@ -100,6 +101,7 @@ public class User implements UserDetails {
      * Returns the authorities granted to the user based on their role.
      * 
      * @return A collection containing the user's role as a GrantedAuthority
+     * @since 1.0
      */
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

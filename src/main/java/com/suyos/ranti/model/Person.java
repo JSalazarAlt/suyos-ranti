@@ -15,6 +15,7 @@ import jakarta.persistence.Table;
  * 
  * @author Suyos Team
  * @version 1.0
+ * @since 1.0
  */
 @Entity
 @Table(name = "persons")
@@ -88,7 +89,7 @@ public class Person {
         this.user = user;
     }
 
-    // Setters and getters
+    // Getters and setters
     
     /**
      * Gets the person ID
@@ -205,11 +206,17 @@ public class Person {
     // Utility methods
     
     /**
-     * Gets the full name by combining first and last name
-     * @return the full name (firstName + lastName)
+     * Gets the full name by combining first, middle, and last name
+     * @return the full name with middle name if present
+     * @since 1.0
      */
     public String getFullName() {
-        return firstName + " " + lastName;
+        StringBuilder fullName = new StringBuilder(firstName);
+        if (middleName != null && !middleName.trim().isEmpty()) {
+            fullName.append(" ").append(middleName);
+        }
+        fullName.append(" ").append(lastName);
+        return fullName.toString();
     }
 
 }
