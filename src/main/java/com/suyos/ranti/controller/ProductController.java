@@ -25,6 +25,7 @@ import com.suyos.ranti.service.ProductService;
  * This controller manages CRUD operations for products including
  * listing, adding, updating, and deleting products.
  * 
+ * 
  * @author Suyos Team
  * @version 1.0
  * @since 1.0
@@ -35,12 +36,12 @@ public class ProductController {
     
     /**
      * ProductService instance for product-related operations
-     * @since 1.0
      */
     private final ProductService productService;
 
     /**
      * Constructor for ProductController
+     * 
      * @param productService ProductService instance for business logic operations
      * @since 1.0
      */
@@ -50,6 +51,7 @@ public class ProductController {
 
     /**
      * Displays the list of all products
+     * 
      * @param model the model to add attributes for the view
      * @return the home view name with products list
      */
@@ -61,6 +63,7 @@ public class ProductController {
 
     /**
      * Shows the form for adding a new product
+     * 
      * @param model the model to add the new product object
      * @return the product-add view name
      */
@@ -73,6 +76,7 @@ public class ProductController {
 
     /**
      * Saves a new or updated product with image upload
+     * 
      * @param product the product object from the form
      * @param imageFiles the uploaded image files
      * @return redirect to products page
@@ -125,6 +129,7 @@ public class ProductController {
 
     /**
      * Shows the form for updating an existing product
+     * 
      * @param id the ID of the product to update
      * @param model the model to add the product object
      * @return the product-update view name
@@ -138,6 +143,7 @@ public class ProductController {
 
     /**
      * Deletes a product by its ID
+     * 
      * @param id the ID of the product to delete
      * @return redirect to home page
      */

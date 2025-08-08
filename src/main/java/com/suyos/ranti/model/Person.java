@@ -13,6 +13,7 @@ import jakarta.persistence.Table;
  * This class contains personal information associated with a User
  * and maintains a one-to-one relationship with the User entity.
  * 
+ * 
  * @author Suyos Team
  * @version 1.0
  * @since 1.0
@@ -93,6 +94,7 @@ public class Person {
     
     /**
      * Gets the person ID
+     * 
      * @return the person ID
      */
     public Long getId() {
@@ -101,6 +103,7 @@ public class Person {
 
     /**
      * Sets the person ID
+     * 
      * @param id the person ID to set
      */
     public void setId(Long id) {
@@ -109,6 +112,7 @@ public class Person {
 
     /**
      * Gets the first name
+     * 
      * @return the first name
      */
     public String getFirstName() {
@@ -117,6 +121,7 @@ public class Person {
 
     /**
      * Sets the first name
+     * 
      * @param firstName the first name to set
      */
     public void setFirstName(String firstName) {
@@ -125,6 +130,7 @@ public class Person {
 
     /**
      * Gets the last name
+     * 
      * @return the last name
      */
     public String getLastName() {
@@ -133,6 +139,7 @@ public class Person {
 
     /**
      * Sets the last name
+     * 
      * @param lastName the last name to set
      */
     public void setLastName(String lastName) {
@@ -141,6 +148,7 @@ public class Person {
 
     /**
      * Gets the middle name
+     * 
      * @return the middle name
      */
     public String getMiddleName() {
@@ -149,6 +157,7 @@ public class Person {
 
     /**
      * Sets the middle name
+     * 
      * @param middleName the middle name to set
      */
     public void setMiddleName(String middleName) {
@@ -157,6 +166,7 @@ public class Person {
 
     /**
      * Gets the address
+     * 
      * @return the address
      */
     public String getAddress() {
@@ -165,6 +175,7 @@ public class Person {
 
     /**
      * Sets the address
+     * 
      * @param address the address to set
      */
     public void setAddress(String address) {
@@ -173,6 +184,7 @@ public class Person {
 
     /**
      * Gets the phone number
+     * 
      * @return the phone number
      */
     public String getPhone() {
@@ -181,6 +193,7 @@ public class Person {
 
     /**
      * Sets the phone number
+     * 
      * @param phone the phone number to set
      */
     public void setPhone(String phone) {
@@ -189,6 +202,7 @@ public class Person {
 
     /**
      * Gets the associated user
+     * 
      * @return the associated user
      */
     public User getUser() {
@@ -197,6 +211,7 @@ public class Person {
 
     /**
      * Sets the associated user
+     * 
      * @param user the user to set
      */
     public void setUser(User user) {
@@ -207,16 +222,11 @@ public class Person {
     
     /**
      * Gets the full name by combining first, middle, and last name
+     * 
      * @return the full name with middle name if present
-     * @since 1.0
      */
     public String getFullName() {
-        StringBuilder fullName = new StringBuilder(firstName);
-        if (middleName != null && !middleName.trim().isEmpty()) {
-            fullName.append(" ").append(middleName);
-        }
-        fullName.append(" ").append(lastName);
-        return fullName.toString();
+        return firstName + " " + lastName;
     }
 
 }

@@ -9,6 +9,7 @@ import org.springframework.security.web.SecurityFilterChain;
  * Security configuration class for the Ranti application.
  * Configures Spring Security settings including authentication and authorization.
  * 
+ * 
  * @author Suyos Team
  * @version 1.0
  * @since 1.0
@@ -19,6 +20,7 @@ public class SecurityConfig {
     /**
      * Configures the security filter chain with permissive settings.
      * Currently allows all requests without authentication for development.
+     * 
      * 
      * @param http HttpSecurity configuration object
      * @return configured SecurityFilterChain

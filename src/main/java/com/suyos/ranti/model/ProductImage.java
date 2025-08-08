@@ -13,6 +13,7 @@ import jakarta.persistence.Table;
  * This class maps to the product_images table and maintains
  * a many-to-one relationship with Product entity.
  * 
+ * 
  * @author Suyos Team
  * @version 1.0
  * @since 1.0
@@ -53,6 +54,7 @@ public class ProductImage {
     /**
      * Constructor with parameters for creating a new product image
      * 
+     * 
      * @param product the associated product
      * @param imageUrl the URL path to the image
      * @param displayOrder the display order for carousel
@@ -65,48 +67,56 @@ public class ProductImage {
     
     /**
      * Gets the image ID
+     * 
      * @return the image ID
      */
     public Long getId() { return id; }
     
     /**
      * Sets the image ID
+     * 
      * @param id the image ID to set
      */
     public void setId(Long id) { this.id = id; }
     
     /**
      * Gets the associated product
+     * 
      * @return the associated product
      */
     public Product getProduct() { return product; }
     
     /**
      * Sets the associated product
+     * 
      * @param product the product to set
      */
     public void setProduct(Product product) { this.product = product; }
     
     /**
      * Gets the image URL
+     * 
      * @return the image URL
      */
     public String getImageUrl() { return imageUrl; }
     
     /**
      * Sets the image URL
+     * 
      * @param imageUrl the image URL to set
      */
     public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl; }
     
     /**
      * Gets the display order
+     * 
      * @return the display order
      */
     public Integer getDisplayOrder() { return displayOrder; }
     
     /**
      * Sets the display order
+     * 
      * @param displayOrder the display order to set
      */
     public void setDisplayOrder(Integer displayOrder) { this.displayOrder = displayOrder; }

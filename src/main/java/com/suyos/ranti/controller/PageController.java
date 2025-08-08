@@ -8,6 +8,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
  * Controller for handling general page navigation requests.
  * This controller manages the routing for static pages like home, login, and terms.
  * 
+ * 
  * @author Suyos Team
  * @version 1.0
  * @since 1.0
@@ -17,6 +18,7 @@ public class PageController {
     
     /**
      * Displays the home (index) page
+     * 
      * @return the index view name
      */
     @GetMapping("/")
@@ -26,6 +28,7 @@ public class PageController {
 
     /**
      * Displays the login page
+     * 
      * @param redirectAttributes attributes for flash messages
      * @return the login view name
      */
@@ -36,6 +39,7 @@ public class PageController {
 
     /**
      * Displays the terms and conditions page
+     * 
      * @return the terms view name
      */
     @GetMapping("/terms")

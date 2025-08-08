@@ -15,6 +15,7 @@ import jakarta.servlet.http.HttpServletRequest;
  * This controller provides user-friendly error handling by redirecting
  * users to appropriate pages based on their authentication status.
  * 
+ * 
  * @author Suyos Team
  * @version 1.0
  * @since 1.0
@@ -24,6 +25,7 @@ public class CustomErrorController implements ErrorController {
 
     /**
      * Handles all application errors and redirects users appropriately
+     * 
      * @param request the HTTP request that caused the error
      * @param redirectAttributes attributes for flash messages
      * @return ModelAndView with redirect to dashboard or login based on authentication
@@ -40,6 +42,7 @@ public class CustomErrorController implements ErrorController {
 
     /**
      * Returns the error path for this controller
+     * 
      * @return the error path string
      */
     public String getErrorPath() {

@@ -4,6 +4,7 @@ package com.suyos.ranti.model;
  * Enumeration representing user roles in the system.
  * Defines different permission levels and access rights for users.
  * 
+ * 
  * @author Suyos Team
  * @version 1.0
  * @since 1.0
@@ -38,6 +39,7 @@ public enum Role {
     
     /**
      * Gets the role description
+     * 
      * @return the description of the role's permissions
      */
     public String getDescription() {

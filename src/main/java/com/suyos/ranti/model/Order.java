@@ -5,6 +5,8 @@ package com.suyos.ranti.model;
  * This class will contain order information and relationships
  * with other entities like User and Product.
  * 
+ * 
+ * 
  * @author Suyos Team
  * @version 1.0
  * @since 1.0

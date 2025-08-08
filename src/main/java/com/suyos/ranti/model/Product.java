@@ -19,6 +19,7 @@ import java.util.ArrayList;
  * This class maps to the product table in the database and
  * maintains a many-to-one relationship with Category entity.
  * 
+ * 
  * @author Suyos Team
  * @version 1.0
  * @since 1.0
@@ -86,6 +87,7 @@ public class Product {
     /**
      * Constructor with parameters for creating a new product
      * 
+     * 
      * @param name The name of the product
      * @param description The description of the product
      * @param price The price of the product
@@ -108,6 +110,7 @@ public class Product {
 
     /**
      * Gets the product ID
+     * 
      * @return The product ID
      */
     public Long getId() {
@@ -116,6 +119,7 @@ public class Product {
 
     /**
      * Sets the product ID
+     * 
      * @param id The product ID to set
      */
     public void setId(Long id) {
@@ -124,6 +128,7 @@ public class Product {
 
     /**
      * Gets the product name
+     * 
      * @return The product name
      */
     public String getName() {
@@ -132,6 +137,7 @@ public class Product {
 
     /**
      * Sets the product name
+     * 
      * @param name The product name to set
      */
     public void setName(String name) {
@@ -140,6 +146,7 @@ public class Product {
 
     /**
      * Gets the product description
+     * 
      * @return The product description
      */
     public String getDescription() {
@@ -148,6 +155,7 @@ public class Product {
 
     /**
      * Sets the product description
+     * 
      * @param description The product description to set
      */
     public void setDescription(String description) {
@@ -156,6 +164,7 @@ public class Product {
 
     /**
      * Gets the product price
+     * 
      * @return The product price
      */
     public BigDecimal getPrice() {
@@ -164,6 +173,7 @@ public class Product {
 
     /**
      * Sets the product price
+     * 
      * @param price The product price to set
      */
     public void setPrice(BigDecimal price) {
@@ -172,6 +182,7 @@ public class Product {
 
     /**
      * Gets the available stock quantity
+     * 
      * @return The stock quantity
      */
     public int getStock() {
@@ -180,6 +191,7 @@ public class Product {
 
     /**
      * Sets the stock quantity
+     * 
      * @param stock The stock quantity to set
      */
     public void setStock(int stock) {
@@ -188,6 +200,7 @@ public class Product {
 
     /**
      * Gets the product images
+     * 
      * @return the list of product images
      */
     public List<ProductImage> getImages() {
@@ -196,6 +209,7 @@ public class Product {
 
     /**
      * Sets the product images
+     * 
      * @param images the list of product images to set
      */
     public void setImages(List<ProductImage> images) {
@@ -204,6 +218,7 @@ public class Product {
     
     /**
      * Gets the first image URL for display
+     * 
      * @return the first image URL or null if no images
      * @since 1.0
      */
@@ -213,6 +228,7 @@ public class Product {
 
     /**
      * Gets the product category
+     * 
      * @return The category this product belongs to
      */
     public Category getCategory() {
@@ -221,6 +237,7 @@ public class Product {
 
     /**
      * Sets the product category
+     * 
      * @param category The category to set
      */
     public void setCategory(Category category) {
@@ -229,6 +246,7 @@ public class Product {
 
     /**
      * Gets the seller who added this product
+     * 
      * @return The seller who added this product
      */
     public User getSeller() {
@@ -237,6 +255,7 @@ public class Product {
 
     /**
      * Sets the seller who added this product
+     * 
      * @param seller The seller to set
      */
     public void setSeller(User seller) {

@@ -15,6 +15,7 @@ import com.suyos.ranti.repository.UserRepository;
 /**
  * Service class that implements UserDetailsService interface for User entity.
  * 
+ * 
  * @author Suyos Team
  * @version 1.0
  * @since 1.0
@@ -34,6 +35,7 @@ public class UserService implements UserDetailsService {
 
     /**
      * Constructor for UserService
+     * 
      * @param userRepository UserRepository instance for database operations
      * @since 1.0
      */

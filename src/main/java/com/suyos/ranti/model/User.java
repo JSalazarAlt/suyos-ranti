@@ -22,6 +22,7 @@ import jakarta.persistence.Table;
  * This class maps to the user table in the database and contains
  * basic user information including credentials and role assignment.
  * 
+ * 
  * @author Suyos Team
  * @version 1.0
  * @since 1.0
@@ -83,6 +84,7 @@ public class User implements UserDetails {
     /**
      * Constructor with parameters for creating a new user
      * 
+     * 
      * @param username The unique username
      * @param email The user's email address
      * @param password The user's password
@@ -113,6 +115,7 @@ public class User implements UserDetails {
 
     /**
      * Gets the password
+     * 
      * @return The password
      */
     public String getPassword() {
@@ -121,6 +124,7 @@ public class User implements UserDetails {
 
     /**
      * Gets the username
+     * 
      * @return The username
      */
     @Override
@@ -130,6 +134,7 @@ public class User implements UserDetails {
 
     /**
      * Checks if the account is expired
+     * 
      * @return true if the account is not expired, false otherwise
      */
     @Override
@@ -140,6 +145,7 @@ public class User implements UserDetails {
 
     /**
      * Checks if the account is locked
+     * 
      * @return true if the account is not locked, false otherwise
      */
     @Override
@@ -150,6 +156,7 @@ public class User implements UserDetails {
 
     /**
      * Checks if the credentials are non-expired
+     * 
      * @return true if the credentials are not expired, false otherwise
      */
     @Override
@@ -160,6 +167,7 @@ public class User implements UserDetails {
 
     /**
      * Checks if the user is enabled
+     * 
      * @return true if the user is enabled, false otherwise
      */
     @Override
@@ -172,6 +180,7 @@ public class User implements UserDetails {
     
     /**
      * Gets the user ID
+     * 
      * @return The user ID
      */
     public Long getId() {
@@ -180,6 +189,7 @@ public class User implements UserDetails {
 
     /**
      * Sets the user ID
+     * 
      * @param id The user ID to set
      */
     public void setId(Long id) {
@@ -188,6 +198,7 @@ public class User implements UserDetails {
 
     /**
      * Sets the username
+     * 
      * @param username The username to set
      */
     public void setUsername(String username) {
@@ -196,6 +207,7 @@ public class User implements UserDetails {
 
     /**
      * Gets the email address
+     * 
      * @return The email address
      */
     public String getEmail() {
@@ -204,6 +216,7 @@ public class User implements UserDetails {
 
     /**
      * Sets the email address
+     * 
      * @param email The email address to set
      */
     public void setEmail(String email) {
@@ -212,6 +225,7 @@ public class User implements UserDetails {
 
     /**
      * Sets the password
+     * 
      * @param password The password to set
      */
     public void setPassword(String password) {
@@ -220,6 +234,7 @@ public class User implements UserDetails {
 
     /**
      * Gets the user role
+     * 
      * @return The user role
      */
     public Role getRole() {
@@ -228,6 +243,7 @@ public class User implements UserDetails {
 
     /**
      * Sets the user role
+     * 
      * @param role The role to set
      */
     public void setRole(Role role) {
@@ -236,6 +252,7 @@ public class User implements UserDetails {
 
     /**
      * Gets the associated person details
+     * 
      * @return The person details
      */
     public Person getPerson() {
@@ -244,6 +261,7 @@ public class User implements UserDetails {
 
     /**
      * Sets the associated person details
+     * 
      * @param person The person details to set
      */
     public void setPerson(Person person) {
@@ -252,6 +270,7 @@ public class User implements UserDetails {
 
     /**
      * Checks if the user has accepted the terms and conditions
+     * 
      * @return true if terms are accepted, false otherwise
      */
     public Boolean getTermsAccepted() {
@@ -260,6 +279,7 @@ public class User implements UserDetails {
     
     /**
      * Sets whether the user has accepted the terms and conditions
+     * 
      * @param termsAccepted true if terms are accepted, false otherwise
      */
     public void setTermsAccepted(Boolean termsAccepted) {

@@ -14,6 +14,7 @@ import jakarta.persistence.Table;
  * This class maps to the category table in the database and
  * maintains a one-to-many relationship with Product entities.
  * 
+ * 
  * @author Suyos Team
  * @version 1.0
  * @since 1.0
@@ -53,6 +54,7 @@ public class Category {
     /**
      * Constructor with parameters for creating a new category
      * 
+     * 
      * @param name The name of the category
      */
     public Category(String name) {
@@ -63,6 +65,7 @@ public class Category {
     
     /**
      * Gets the category ID
+     * 
      * @return The category ID
      */
     public Long getId() {
@@ -71,6 +74,7 @@ public class Category {
 
     /**
      * Sets the category ID
+     * 
      * @param id The category ID to set
      */
     public void setId(Long id) {
@@ -79,6 +83,7 @@ public class Category {
 
     /**
      * Gets the category name
+     * 
      * @return The category name
      */
     public String getName() {
@@ -87,6 +92,7 @@ public class Category {
 
     /**
      * Sets the category name
+     * 
      * @param name The category name to set
      */
     public void setName(String name) {
@@ -95,6 +101,7 @@ public class Category {
 
     /**
      * Gets the list of products in this category
+     * 
      * @return The list of products
      */
     public List<Product> getProducts() {
@@ -103,6 +110,7 @@ public class Category {
 
     /**
      * Sets the list of products in this category
+     * 
      * @param products The list of products to set
      */
     public void setProducts(List<Product> products) {

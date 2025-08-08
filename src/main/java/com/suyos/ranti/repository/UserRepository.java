@@ -9,6 +9,7 @@ import com.suyos.ranti.model.User;
  * Repository interface for User entity.
  * Provides methods to perform CRUD operations and custom queries on User data.
  * 
+ * 
  * @author Suyos Team
  * @version 1.0
  * @since 1.0

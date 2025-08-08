@@ -10,6 +10,7 @@ import com.suyos.ranti.model.Product;
  * Provides methods to perform CRUD operations on Product data.
  * Extends JpaRepository to inherit basic database operations.
  * 
+ * 
  * @author Suyos Team
  * @version 1.0
  * @since 1.0
